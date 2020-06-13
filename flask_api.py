@@ -50,6 +50,10 @@ def predict():
         prediction = 'Spam'
     return jsonify(results = prediction)
 
+@app.route('/')
+def index():
+    return "<h1>Welcome to our server Hello!</h1>"
+
 if __name__ == "__main__":
     classifier = pickle.load(open("ham_spam.pkl","rb"))
    
