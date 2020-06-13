@@ -40,6 +40,7 @@ def bag_words(words):
 @app.route('/api/',methods=['POST'])
 
 def predict():
+    classifier = pickle.load(open("ham_spam.pkl","rb"))
     data = request.get_json(force=True)
     predict_req  = [data['s1']]
     print(predict_req[0])
@@ -55,7 +56,7 @@ def index():
     return "<h1>Welcome to our server Hello!</h1>"
 
 if __name__ == "__main__":
-    classifier = pickle.load(open("ham_spam.pkl","rb"))
+    
    
     
     
